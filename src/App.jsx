@@ -15,19 +15,10 @@ import RegistrationModal from './components/RegistrationModal';
 import CorporateNominationModal from './components/CorporateNominationModal';
 import BrochureModal from './components/BrochureModal';
 import AdminPortal from './components/AdminPortal';
-import ExecutivePdfDossier from './components/ExecutivePdfDossier';
 
 export default function App() {
   const [isAdminRoute, setIsAdminRoute] = useState(
     window.location.pathname === '/admin' || window.location.hash === '#admin'
-  );
-  const [isDossierRoute, setIsDossierRoute] = useState(
-    window.location.pathname === '/dossier' || 
-    window.location.pathname === '/pdf' || 
-    window.location.pathname === '/brochure' ||
-    window.location.hash === '#pdf' ||
-    window.location.hash === '#brochure' ||
-    window.location.hash === '#dossier'
   );
 
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -39,14 +30,6 @@ export default function App() {
     const handleLocationChange = () => {
       setIsAdminRoute(
         window.location.pathname === '/admin' || window.location.hash === '#admin'
-      );
-      setIsDossierRoute(
-        window.location.pathname === '/dossier' || 
-        window.location.pathname === '/pdf' || 
-        window.location.pathname === '/brochure' ||
-        window.location.hash === '#pdf' ||
-        window.location.hash === '#brochure' ||
-        window.location.hash === '#dossier'
       );
     };
 
@@ -61,24 +44,15 @@ export default function App() {
   const navigateToAdmin = () => {
     window.history.pushState({}, '', '/admin');
     setIsAdminRoute(true);
-    setIsDossierRoute(false);
-    window.scrollTo(0, 0);
-  };
-
-  const navigateToDossier = () => {
-    window.history.pushState({}, '', '/dossier');
-    setIsDossierRoute(true);
-    setIsAdminRoute(false);
     window.scrollTo(0, 0);
   };
 
   const navigateToHome = () => {
     window.history.pushState({}, '', '/');
-    if (window.location.hash) {
+    if (window.location.hash === '#admin') {
       window.location.hash = '';
     }
     setIsAdminRoute(false);
-    setIsDossierRoute(false);
     window.scrollTo(0, 0);
   };
 
@@ -92,23 +66,12 @@ export default function App() {
   };
 
   const handleOpenBrochure = () => {
-    navigateToDossier();
+    setIsBrochureOpen(true);
   };
 
   // If in /admin route, display Admin Portal
   if (isAdminRoute) {
     return <AdminPortal onExit={navigateToHome} />;
-  }
-
-  // If in /dossier or /pdf route, display Figma-Style PDF Dossier
-  if (isDossierRoute) {
-    return (
-      <ExecutivePdfDossier 
-        onExit={navigateToHome} 
-        onOpenRegister={handleOpenRegister}
-        onOpenCorporate={handleOpenCorporate}
-      />
-    );
   }
 
   return (

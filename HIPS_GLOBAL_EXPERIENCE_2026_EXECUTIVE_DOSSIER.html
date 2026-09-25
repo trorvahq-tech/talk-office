@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIPS Global Experience 2026 — Executive Dossier (The Talk Office)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #04070a;
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+    .no-print-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99999;
+      background: rgba(6, 18, 22, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 229, 212, 0.3);
+      padding: 0.85rem 2rem;
+      display: flex;
+      justifyContent: space-between;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    .print-btn {
+      background: linear-gradient(135deg, #00E5D4 0%, #0B6B75 100%);
+      color: #04070a;
+      font-weight: 800;
+      padding: 0.65rem 1.6rem;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 229, 212, 0.35);
+      transition: all 0.2s;
+    }
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 229, 212, 0.5);
+    }
+    .dossier-container {
+      max-width: 860px;
+      margin: 4rem auto 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .pdf-page {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      min-height: 1120px;
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justifyContent: space-between;
+      position: relative;
+    }
+    .cover-page {
+      background: linear-gradient(160deg, #041a1d 0%, #062b30 40%, #0a1118 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(0, 229, 212, 0.3);
+    }
+    .page-header {
+      display: flex;
+      justifyContent: space-between;
+      align-items: center;
+      border-bottom: 2px solid #00B4B4;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    .page-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: #042226;
+      margin-top: 0.2rem;
+    }
+    .section-tag {
+      font-size: 0.72rem;
+      color: #008B8B;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .footer-line {
+      display: flex;
+      justifyContent: space-between;
+      align-items: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1rem;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+    .cover-footer-line {
+      display: flex;
+      justifyContent: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1rem;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    @media print {
+      body, html {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print-bar {
+        display: none !important;
+      }
+      .dossier-container {
+        margin: 0 !important;
+        max-width: 100% !important;
+        gap: 0 !important;
+      }
+      .pdf-page {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+        margin: 0 !important;
+        padding: 2.5cm 2cm !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Floating Action Bar -->
+  <div class="no-print-bar">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div style="font-family: 'Cinzel', serif; font-weight: 800; color: #00E5D4; font-size: 1.15rem;">
+        THE TALK OFFICE
+      </div>
+      <span style="background: rgba(0, 229, 212, 0.15); color: #00E5D4; border: 1px solid rgba(0, 229, 212, 0.3); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.72rem; font-weight: 700;">
+        EXECUTIVE DOSSIER (A4)
+      </span>
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      🖨️ Save as PDF / Print Document
+    </button>
+  </div>
+
+  <div class="dossier-container">
+
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="pdf-page cover-page">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 229, 212, 0.25); padding-bottom: 1.5rem;">
+        <div>
+          <div style="font-family: 'Cinzel', serif; font-weight: 800; font-size: 1.25rem; color: #00E5D4; letter-spacing: 0.05em;">
+            THE TALK OFFICE
+          </div>
+          <div style="font-size: 0.72rem; color: #94a3b8; letter-spacing: 0.14em; text-transform: uppercase;">
+            Executive Development & Global Expeditions
+          </div>
+        </div>
+        <div>
+          <span style="background: rgba(212,163,89,0.15); color: #f5d392; border: 1px solid rgba(212,163,89,0.4); padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+            HIPS 4.0 EXPEDITION
+          </span>
+        </div>
+      </div>
+
+      <div style="padding: 3rem 0;">
+        <div style="display: inline-block; background: rgba(0, 229, 212, 0.12); border: 1px solid rgba(0, 229, 212, 0.35); border-radius: 30px; padding: 0.4rem 1.1rem; color: #00E5D4; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem;">
+          ✦ OFFICIAL CORPORATE PROPOSAL & DOSSIER
+        </div>
+
+        <h1 style="font-family: 'Cinzel', serif; font-size: 3.2rem; line-height: 1.1; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">
+          HIPS GLOBAL <br>
+          <span style="color: #00E5D4;">EXPERIENCE 2026</span>
+        </h1>
+
+        <div style="font-size: 1.5rem; font-family: 'Cinzel', serif; color: #d4a359; font-weight: 700; margin-bottom: 1.25rem;">
+          KENYA × RWANDA
+        </div>
+
+        <div style="font-size: 1.25rem; color: #f8fafc; font-weight: 600; margin-bottom: 1.5rem; border-left: 4px solid #00E5D4; padding-left: 1.25rem;">
+          IMPACT THAT SCALES: BEYOND BORDERS
+        </div>
+
+        <p style="font-size: 0.98rem; color: #cbd5e1; max-width: 680px; line-height: 1.65;">
+          An International Professional Development, Business Exposure & Cultural Experience designed for executives, business leaders, entrepreneurs, and forward-thinking corporate teams.
+        </p>
+      </div>
+
+      <div style="background: rgba(7, 18, 24, 0.85); border: 1px solid rgba(0, 229, 212, 0.25); border-radius: 12px; padding: 1.75rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <div>
+          <div style="font-size: 0.72rem; color: #00E5D4; font-weight: 700; text-transform: uppercase;">EXPEDITION DATES</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-top: 2px;">12th – 18th Nov 2026</div>
+          <div style="font-size: 0.78rem; color: #94a3b8;">6 Days / 5 Nights</div>
+        </div>
+        <div>
+          <div style="font-size: 0.72rem; color: #00E5D4; font-weight: 700; text-transform: uppercase;">DESTINATION HUBS</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-top: 2px;">Nairobi × Kigali</div>
+          <div style="font-size: 0.78rem; color: #94a3b8;">Kenya & Rwanda Dual-Nation</div>
+        </div>
+        <div>
+          <div style="font-size: 0.72rem; color: #f5d392; font-weight: 700; text-transform: uppercase;">PAYMENT DEADLINE</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #f5d392; margin-top: 2px;">16th October 2026</div>
+          <div style="font-size: 0.78rem; color: #94a3b8;">Zenith Bank Wire</div>
+        </div>
+      </div>
+
+      <div class="cover-footer-line">
+        <span>THE TALK OFFICE LTD • CORPORATE DOSSIER</span>
+        <span>DOCUMENT PAGE 01 / 06</span>
+      </div>
+    </div>
+
+    <!-- PAGE 2: PROGRAMME OVERVIEW & 4 PILLARS -->
+    <div class="pdf-page">
+      <div>
+        <div class="page-header">
+          <div>
+            <div class="section-tag">SECTION 01 & 02 • INTELLECTUAL FOUNDATION</div>
+            <h2 class="page-title">Programme Overview & Intellectual Focus</h2>
+          </div>
+          <div style="font-family: 'Cinzel', serif; font-weight: 800; color: #008B8B;">TALK OFFICE</div>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.15rem; color: #042226; font-weight: 800; margin-bottom: 0.6rem;">1. Programme Overview</h3>
+          <p style="font-size: 0.92rem; color: #334155; line-height: 1.65; margin-bottom: 0.75rem;">
+            The <strong>HIPS Global Experience 2026</strong> is a curated international professional development and immersion programme designed for professionals, executives, entrepreneurs and organisational teams seeking to broaden their professional perspective through learning, business exposure, networking and cultural experience.
+          </p>
+          <p style="font-size: 0.92rem; color: #334155; line-height: 1.65;">
+            The Kenya × Rwanda experience combines structured professional engagement with guided destination experiences across Nairobi and Kigali. It is designed to move beyond a conventional conference or leisure trip by bringing professional learning and international exposure into one coherent, life-changing experience.
+          </p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #05262B 0%, #094046 100%); color: #ffffff; border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 2rem; border-left: 5px solid #00E5D4;">
+          <div style="font-size: 0.75rem; color: #00E5D4; font-weight: 800; text-transform: uppercase; margin-bottom: 0.3rem;">THEME & GUIDING QUESTION</div>
+          <div style="font-family: 'Cinzel', serif; font-size: 1.35rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">IMPACT THAT SCALES: BEYOND BORDERS</div>
+          <p style="font-size: 0.92rem; color: #e2e8f0; font-style: italic;">
+            "How do capable professionals turn knowledge, ideas and opportunity into measurable results that can scale—across roles, organisations, industries and borders?"
+          </p>
+        </div>
+
+        <div>
+          <div style="font-size: 0.8rem; color: #008B8B; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem;">THE 4 PROFESSIONAL FOCUS PILLARS</div>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+            <div style="border: 1px solid #cbd5e1; border-radius: 10px; padding: 1.15rem; background: #f8fafc;">
+              <strong style="color: #042226; font-size: 0.95rem;">01. EXECUTION INTELLIGENCE</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin-top: 0.35rem;">Turning knowledge, plans and intentions into measurable results. Overcoming the knowing-doing gap.</p>
+            </div>
+            <div style="border: 1px solid #cbd5e1; border-radius: 10px; padding: 1.15rem; background: #f8fafc;">
+              <strong style="color: #042226; font-size: 0.95rem;">02. SYSTEMS THINKING</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin-top: 0.35rem;">Moving from individual effort to sustainable organizational structures that perform at scale.</p>
+            </div>
+            <div style="border: 1px solid #cbd5e1; border-radius: 10px; padding: 1.15rem; background: #f8fafc;">
+              <strong style="color: #042226; font-size: 0.95rem;">03. INFLUENCE AT SCALE</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin-top: 0.35rem;">Creating influence beyond formal title: professional credibility, collaboration and moving stakeholders.</p>
+            </div>
+            <div style="border: 1px solid #cbd5e1; border-radius: 10px; padding: 1.15rem; background: #f8fafc;">
+              <strong style="color: #042226; font-size: 0.95rem;">04. CAREER CAPITAL & LEVERAGE</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin-top: 0.35rem;">Strategic relationship building that converts executive connections into career leverage and opportunities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-line">
+        <span>THE TALK OFFICE • HIPS GLOBAL 2026 PROPOSAL</span>
+        <span>DOCUMENT PAGE 02 / 06</span>
+      </div>
+    </div>
+
+    <!-- PAGE 3: DUAL DESTINATION & 4D ARCHITECTURE -->
+    <div class="pdf-page">
+      <div>
+        <div class="page-header">
+          <div>
+            <div class="section-tag">SECTION 03 & 04 • STRATEGIC DESTINATIONS & ARCHITECTURE</div>
+            <h2 class="page-title">Why Kenya × Rwanda & 4D Model</h2>
+          </div>
+          <div style="font-family: 'Cinzel', serif; font-weight: 800; color: #008B8B;">TALK OFFICE</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+          <div style="background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 12px; padding: 1.25rem;">
+            <strong style="font-size: 1.05rem; color: #042f2e;">KENYA — Business & Connection</strong>
+            <p style="font-size: 0.82rem; color: #334155; margin: 0.5rem 0;">Nairobi provides the metropolitan business component, professional engagements, and landmark wildlife game drives.</p>
+            <ul style="font-size: 0.8rem; color: #0f766e; padding-left: 1.2rem; line-height: 1.5;">
+              <li>Nairobi National Park Game Drive</li>
+              <li>Elephant Orphanage Experience</li>
+              <li>Sightseeing & Institutional Engagements</li>
+            </ul>
+          </div>
+
+          <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 1.25rem;">
+            <strong style="font-size: 1.05rem; color: #451a03;">RWANDA — Exposure & Culture</strong>
+            <p style="font-size: 0.82rem; color: #334155; margin: 0.5rem 0;">Kigali provides cultural depth, governance transformation, art, adventure, and structured reflection.</p>
+            <ul style="font-size: 0.8rem; color: #92400e; padding-left: 1.2rem; line-height: 1.5;">
+              <li>Kigali City Tour & Genocide Memorial</li>
+              <li>Niyo Art Center & Art Market</li>
+              <li>Car-Free Zone & Fazenda Sengha Adventure</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <div style="font-size: 0.8rem; color: #008B8B; font-weight: 800; text-transform: uppercase; margin-bottom: 0.6rem;">PROPOSED 4D EXPERIENCE ARCHITECTURE</div>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+            <thead>
+              <tr style="background: #042226; color: #ffffff;">
+                <th style="padding: 0.75rem 1rem; text-align: left; width: 30%;">DIMENSION</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">WHAT IT OFFERS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: #008B8B;">01. LEARN</td>
+                <td style="padding: 0.75rem 1rem; color: #334155;">Professional sessions, intellectual frameworks, and practical executive insights.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: #008B8B;">02. EXPERIENCE</td>
+                <td style="padding: 0.75rem 1rem; color: #334155;">Business immersion, destination exploration, wildlife safaris, and cultural encounters.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: #008B8B;">03. CONNECT</td>
+                <td style="padding: 0.75rem 1rem; color: #334155;">Cross-sector professional networking, peer exchange, and strategic relationship building.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: #008B8B;">04. REFLECT</td>
+                <td style="padding: 0.75rem 1rem; color: #334155;">Structured reflection to process perspectives and design actionable workplace applications.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="footer-line">
+        <span>THE TALK OFFICE • HIPS GLOBAL 2026 PROPOSAL</span>
+        <span>DOCUMENT PAGE 03 / 06</span>
+      </div>
+    </div>
+
+    <!-- PAGE 4: VALUE FOR ORGANIZATIONS & WHO SHOULD ATTEND -->
+    <div class="pdf-page">
+      <div>
+        <div class="page-header">
+          <div>
+            <div class="section-tag">SECTION 05 & 06 • ORGANISATIONAL ROI & AUDIENCE</div>
+            <h2 class="page-title">Why Nominate & Target Delegates</h2>
+          </div>
+          <div style="font-family: 'Cinzel', serif; font-weight: 800; color: #008B8B;">TALK OFFICE</div>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.15rem; color: #042226; font-weight: 800; margin-bottom: 0.6rem;">Why Organisations Should Nominate Their People</h3>
+          <p style="font-size: 0.88rem; color: #334155; line-height: 1.6; margin-bottom: 1rem;">
+            For forward-thinking organisations, the programme provides an opportunity to expose selected professionals to new environments, professional perspectives, cross-cultural interaction and practical experiences outside the traditional classroom.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+            <div style="background: #f8fafc; padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #334155;">✓ Leadership & Management Development</div>
+            <div style="background: #f8fafc; padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #334155;">✓ High-Potential Talent Acceleration</div>
+            <div style="background: #f8fafc; padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #334155;">✓ Executive Retention & International Exposure</div>
+            <div style="background: #f8fafc; padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #334155;">✓ Cross-Border Networking & B2B Pipeline</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.15rem; color: #042226; font-weight: 800; margin-bottom: 0.6rem;">Who Should Attend</h3>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; font-size: 0.82rem; color: #475569;">
+            <div style="padding: 0.5rem 0.75rem; border-left: 3px solid #008B8B; background: #f8fafc;">• Senior & Mid-Level Corporate Professionals</div>
+            <div style="padding: 0.5rem 0.75rem; border-left: 3px solid #008B8B; background: #f8fafc;">• C-Suite Executives, Directors & Unit Heads</div>
+            <div style="padding: 0.5rem 0.75rem; border-left: 3px solid #008B8B; background: #f8fafc;">• High-Potential Fast-Track Leaders</div>
+            <div style="padding: 0.5rem 0.75rem; border-left: 3px solid #008B8B; background: #f8fafc;">• Entrepreneurs & Scale-Up Founders</div>
+            <div style="padding: 0.5rem 0.75rem; border-left: 3px solid #008B8B; background: #f8fafc;">• HR & Learning / People Development Directors</div>
+            <div style="padding: 0.5rem 0.75rem; border-left: 3px solid #008B8B; background: #f8fafc;">• Public Sector Leaders & Policy Professionals</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-line">
+        <span>THE TALK OFFICE • HIPS GLOBAL 2026 PROPOSAL</span>
+        <span>DOCUMENT PAGE 04 / 06</span>
+      </div>
+    </div>
+
+    <!-- PAGE 5: INVESTMENT, INCLUSIONS & EXCLUSIONS -->
+    <div class="pdf-page">
+      <div>
+        <div class="page-header">
+          <div>
+            <div class="section-tag">SECTION 07 & 08 • INVESTMENT & DELIVERABLES</div>
+            <h2 class="page-title">Programme Investment & Package Scope</h2>
+          </div>
+          <div style="font-family: 'Cinzel', serif; font-weight: 800; color: #008B8B;">TALK OFFICE</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+          <div style="background: linear-gradient(135deg, #05262B 0%, #0c3c42 100%); color: #ffffff; border-radius: 12px; padding: 1.5rem; border: 1px solid #00E5D4;">
+            <div style="font-size: 0.72rem; color: #00E5D4; font-weight: 800; text-transform: uppercase;">TIER 01 • SHARING</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.2rem 0;">₦2,500,000</div>
+            <div style="font-size: 0.8rem; color: #cbd5e1;">Per person • Twin sharing accommodation</div>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #171c26 0%, #0d1219 100%); color: #ffffff; border-radius: 12px; padding: 1.5rem; border: 1px solid #d4a359;">
+            <div style="font-size: 0.72rem; color: #f5d392; font-weight: 800; text-transform: uppercase;">TIER 02 • SINGLE OCCUPANCY</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #f5d392; margin: 0.5rem 0 0.2rem 0;">₦3,000,000</div>
+            <div style="font-size: 0.8rem; color: #cbd5e1;">Per person • Private single executive suite</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem;">
+            <div style="font-size: 0.82rem; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem;">✓ PACKAGE INCLUDES</div>
+            <ul style="font-size: 0.8rem; color: #334155; padding-left: 1.2rem; line-height: 1.6;">
+              <li>Return multi-flight tickets from Lagos</li>
+              <li>1 night accommodation in Nairobi</li>
+              <li>4 nights accommodation in Kigali</li>
+              <li>All scheduled airport & overland transfers</li>
+              <li>Conference facility & masterclasses</li>
+              <li>Guided institutional & company visits</li>
+              <li>Daily breakfast</li>
+              <li>Listed sightseeing & activities</li>
+              <li>Official Certificate of Completion</li>
+            </ul>
+          </div>
+
+          <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 1.25rem;">
+            <div style="font-size: 0.82rem; color: #dc2626; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem;">✕ NOT INCLUDED</div>
+            <ul style="font-size: 0.8rem; color: #7f1d1d; padding-left: 1.2rem; line-height: 1.6;">
+              <li>Personal expenses & shopping</li>
+              <li>Airport VIP lounge access</li>
+              <li>Lunches</li>
+              <li>Visa fees (where applicable)</li>
+              <li>Optional unlisted adventure activities</li>
+              <li>Fun night / dinner party beverages</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background: #042226; color: #fff; border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 0.72rem; color: #00E5D4; font-weight: 800;">OFFICIAL SETTLEMENT ACCOUNT</div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-top: 0.2rem;">Zenith Bank PLC • Account Name: <strong>The Talk Office</strong></div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.72rem; color: #d4a359; font-weight: 800;">ACCOUNT NUMBER</div>
+            <div style="font-size: 1.35rem; font-weight: 800; color: #f5d392; font-family: monospace;">1019925375</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-line">
+        <span>THE TALK OFFICE • HIPS GLOBAL 2026 PROPOSAL</span>
+        <span>DOCUMENT PAGE 05 / 06</span>
+      </div>
+    </div>
+
+    <!-- PAGE 6: ADVISORY & CONTACT DESK -->
+    <div class="pdf-page cover-page">
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 229, 212, 0.25); padding-bottom: 1.5rem; margin-bottom: 2.5rem;">
+          <div>
+            <div style="font-size: 0.75rem; color: #00E5D4; font-weight: 800; text-transform: uppercase;">SECTION 09 • ADMISSION & SIGN-OFF</div>
+            <h2 style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffffff; margin-top: 0.2rem;">Programme Advisory & Booking Desk</h2>
+          </div>
+          <div style="font-family: 'Cinzel', serif; font-weight: 800; color: #00E5D4;">THE TALK OFFICE</div>
+        </div>
+
+        <div style="background: rgba(7, 18, 24, 0.9); border: 1px solid rgba(0, 229, 212, 0.25); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="font-size: 0.75rem; color: #00E5D4; font-weight: 800; text-transform: uppercase; text-align: center; margin-bottom: 1rem;">PROPOSED DESTINATION FLOW</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
+            <div style="flex: 1;">
+              <div style="font-size: 1rem; font-weight: 800; color: #fff;">NAIROBI, KENYA</div>
+              <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Business • Safari • City</div>
+            </div>
+            <div style="color: #00E5D4; font-size: 1.2rem; font-weight: 800;">➔</div>
+            <div style="flex: 1;">
+              <div style="font-size: 1rem; font-weight: 800; color: #fff;">KIGALI, RWANDA</div>
+              <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Culture • Art • Reflection</div>
+            </div>
+            <div style="color: #00E5D4; font-size: 1.2rem; font-weight: 800;">➔</div>
+            <div style="flex: 1;">
+              <div style="font-size: 1rem; font-weight: 800; color: #f5d392;">GLOBAL RETURN</div>
+              <div style="font-size: 0.75rem; color: #cbd5e1; margin-top: 2px;">Perspective • Scale</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.25rem; margin-bottom: 2rem;">
+          <div style="font-size: 0.78rem; color: #f5d392; font-weight: 700; text-transform: uppercase; margin-bottom: 0.4rem;">PROGRAMME ADVISORY NOTE</div>
+          <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.6;">
+            The detailed flight schedule, accommodation bookings, masterclass engagements and day-to-day itinerary will be communicated to confirmed delegates 4 weeks prior to departure. The itinerary is subject to operational considerations and airline schedules.
+          </p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(0,229,212,0.12) 0%, rgba(212,163,89,0.08) 100%); border: 1px solid rgba(0, 229, 212, 0.35); border-radius: 12px; padding: 1.75rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+          <div>
+            <div style="font-size: 0.72rem; color: #00E5D4; font-weight: 800; text-transform: uppercase;">DIRECT INQUIRIES & ADMISSIONS</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-top: 0.3rem;">08166399901</div>
+            <div style="font-size: 0.82rem; color: #cbd5e1; margin-top: 0.2rem;">hello@thetalkoffice.com</div>
+            <div style="font-size: 0.82rem; color: #94a3b8;">www.thetalkoffice.com</div>
+          </div>
+          <div>
+            <div style="font-size: 0.72rem; color: #f5d392; font-weight: 800; text-transform: uppercase;">OFFICIAL CHANNELS</div>
+            <div style="font-size: 0.85rem; color: #f8fafc; margin-top: 0.3rem;">Instagram: <strong>@hips.connect</strong></div>
+            <div style="font-size: 0.85rem; color: #f8fafc; margin-top: 0.2rem;">Instagram: <strong>@thetalkoffice</strong></div>
+            <div style="font-size: 0.75rem; color: #00E5D4; margin-top: 0.4rem; font-weight: 600;">#HIPSGlobal2026 #ImpactThatScales</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-footer-line">
+        <span>AUTHORIZED ISSUANCE • NAIROBI & KIGALI EXPEDITION</span>
+        <span>DOCUMENT PAGE 06 / 06</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
